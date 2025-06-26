@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{E6B0A16F-5482-442C-B6A2-5CABF1C8C0EC}|http">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Deltarune PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Deltarune/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="Deltarune/Controllers/AuthController.cs" Line="18" Column="10" />
+      <File FileName="Deltarune/Utils/SnakeCaseNamingPolicy.cs" Line="13" Column="11" />
+      <File FileName="Deltarune/appsettings.json" Line="1" Column="1" />
+      <File FileName="Deltarune/Views/Home/AccessDenied.cshtml" Line="1" Column="1" />
+      <File FileName="Deltarune/Views/Home/Profile.cshtml" Line="1" Column="1" />
+      <File FileName="Deltarune/Views/Home/Register.cshtml" Line="12" Column="1" />
+      <File FileName="Deltarune/Controllers/HomeController.cs" Line="25" Column="44" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Deltarune" expanded="True">
+            <Node name="Deltarune" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Utils" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Auth" expanded="True" />
+                <Node name="Home" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

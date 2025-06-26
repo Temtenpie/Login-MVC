@@ -1,0 +1,66 @@
+﻿@model Deltarune.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<!-- Contenedor principal centrado -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Tarjeta del formulario de login -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Iniciar Sesión</h3>
+                </div>
+                <div class="card-body">
+
+                    <!-- Alerta de error - se muestra si hay errores de validación -->
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @Model.ErrorMessage
+                        </div>
+                    }
+
+                    <!-- Formulario de autenticación -->
+                    <form asp-action="Login" method="post">
+                        <!-- Token de seguridad para prevenir ataques CSRF -->
+                        @Html.AntiForgeryToken()
+
+                        <!-- Campo para nombre de usuario -->
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label">Nombre de Usuario</label>
+                            <input asp-for="Username" class="form-control" placeholder="Ingresa tu nombre de usuario" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <!-- Campo para contraseña (tipo password) -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Contraseña</label>
+                            <input asp-for="Password" class="form-control" placeholder="Ingresa tu contraseña" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Botón de envío del formulario -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        </div>
+                    </form>
+
+                    <!-- Enlace para volver a la página principal -->
+                    <div class="text-center mt-3">
+                        <a asp-controller="Home" asp-action="Index" class="text-decoration-none">
+                            ← Volver al inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts de validación del lado del cliente -->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,13 @@
+/* 
+ * Estilos mínimos para la animación de carga 
+ * Utilizado para indicar visualmente que la aplicación está verificando la conexión
+ */
+.spin {
+    display: inline-block;
+    animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

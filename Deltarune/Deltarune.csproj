@@ -1,0 +1,35 @@
+<!-- Proyecto web ASP.NET Core para la aplicación Deltarune -->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- Framework objetivo: .NET 7.0 -->
+    <TargetFramework>net7.0</TargetFramework>
+    <!-- Habilita tipos de referencia nullables para mayor seguridad -->
+    <Nullable>enable</Nullable>
+    <!-- Habilita using implícitos para reducir código boilerplate -->
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- Configuración para ejecución HTTP -->
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  
+  <!-- Excluye directorios de la compilación -->
+  <ItemGroup>
+    <None Remove="Views\Auth\" />
+    <None Remove="Utils\" />
+  </ItemGroup>
+  
+  <!-- Incluye directorios como carpetas -->
+  <ItemGroup>
+    <Folder Include="Views\Auth\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  
+  <!-- Dependencias NuGet del proyecto -->
+  <ItemGroup>
+    <!-- Biblioteca para encriptación de contraseñas con BCrypt -->
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <!-- Biblioteca para serialización/deserialización JSON -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>

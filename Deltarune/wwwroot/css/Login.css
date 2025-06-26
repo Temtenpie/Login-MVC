@@ -1,0 +1,73 @@
+﻿body {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-box {
+    background: #221a44cc;
+    padding: 2rem;
+    border-radius: 0;
+    border: 2px solid #00fff7;
+    box-shadow: 0 0 16px #00fff744;
+    width: 340px;
+    color: #e0e6ff;
+}
+
+    .login-box h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #00fff7;
+        text-shadow: 0 0 8px #00fff7cc;
+    }
+
+    .login-box label {
+        display: block;
+        margin-top: 1rem;
+        color: #00fff7;
+    }
+
+    .login-box input[type="email"],
+    .login-box input[type="password"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 2px solid #00fff7;
+        border-radius: 0;
+        background: #181446;
+        color: #fff;
+        font-family: 'Press Start 2P', monospace;
+        box-sizing: border-box;
+        box-shadow: 0 0 4px #00fff744;
+    }
+
+    .login-box input[type="email"]:focus,
+    .login-box input[type="password"]:focus {
+        outline: none;
+        border-color: #fff;
+        box-shadow: 0 0 8px #00fff7cc;
+    }
+
+    .login-box button {
+        margin-top: 1.5rem;
+        width: 100%;
+        padding: 0.5rem;
+        background: #2e1a63;
+        color: #fff;
+        border: 3px solid #00fff7;
+        border-radius: 0;
+        font-family: 'Press Start 2P', monospace;
+        cursor: pointer;
+        box-shadow: 0 0 8px #00fff7cc;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+        .login-box button:hover {
+            background: #00fff7;
+            color: #2e1a63;
+            box-shadow: 0 0 16px #00fff7cc, 0 0 4px #fff;
+        }

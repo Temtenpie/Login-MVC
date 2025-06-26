@@ -1,0 +1,83 @@
+# ========================================
+# ARCHIVO .GITIGNORE PARA ASP.NET MVC
+# ========================================
+# Este archivo le dice a Git qué archivos y carpetas NO debe rastrear
+# Coloca este archivo en la raíz de tu proyecto y nómbralo exactamente: .gitignore
+# 
+# SINTAXIS BÁSICA:
+# archivo.txt          - Ignora un archivo específico
+# *.extension          - Ignora todos los archivos con esa extensión
+# carpeta/             - Ignora toda la carpeta y su contenido
+# /archivo.txt         - Ignora solo en la raíz del proyecto
+# !archivo.txt         - EXCEPCIÓN: NO ignores este archivo (anula reglas anteriores)
+# **/carpeta/          - Ignora carpeta en cualquier nivel del proyecto
+# carpeta/*.txt        - Ignora solo archivos .txt dentro de carpeta
+# 
+# Las líneas que empiezan con # son comentarios
+# ========================================
+
+# VISUAL STUDIO - Archivos de configuración del IDE
+# Estos archivos contienen configuraciones personales de cada desarrollador
+# y se regeneran automáticamente cuando abres el proyecto
+.vs/                    # Carpeta con configuraciones de Visual Studio
+*.user                  # Archivos de configuración específica del usuario
+*.suo                   # Archivos de opciones de solución del usuario  
+*.sln.docstates        # Estados de documentos de la solución
+
+# COMPILACIÓN - Archivos generados al compilar
+# Estos directorios se crean automáticamente cuando compilas tu proyecto
+# y contienen archivos .dll, .exe y otros binarios
+bin/                    # Archivos compilados (ejecutables, DLLs)
+obj/                    # Archivos intermedios de compilación
+Debug/                  # Archivos de compilación en modo Debug
+Release/                # Archivos de compilación en modo Release
+
+# PAQUETES Y DEPENDENCIAS
+# Estas carpetas contienen librerías descargadas automáticamente
+packages/               # Paquetes NuGet (se descargan con restore)
+node_modules/           # Paquetes Node.js (si usas frontend tools)
+
+# ARCHIVOS DE CONFIGURACIÓN SENSIBLES
+# Estos archivos pueden contener datos sensibles como conexiones a BD
+appsettings.Development.json    # Configuración de desarrollo (puede tener datos sensibles)
+connectionstrings.json          # Cadenas de conexión (¡nunca versionar passwords!)
+
+# BASE DE DATOS LOCAL
+# Archivos de bases de datos locales que cada desarrollador tiene diferentes
+*.mdf                   # Archivos de base de datos SQL Server
+*.ldf                   # Archivos de log de SQL Server
+App_Data/               # Carpeta de datos de la aplicación
+
+# LOGS Y ARCHIVOS TEMPORALES
+# Archivos que se generan durante la ejecución y no son parte del código
+*.log                   # Archivos de registro/logs
+*.tmp                   # Archivos temporales
+*.temp                  # Archivos temporales
+Temp/                   # Carpeta de archivos temporales
+tmp/                    # Carpeta de archivos temporales
+
+# ARCHIVOS ESPECÍFICOS DE TU PROYECTO
+# Personaliza esta sección según tu proyecto
+calculadora.sln         # Archivo de solución (se puede regenerar)
+README                  # Archivo README si no quieres versionarlo
+
+# EJEMPLOS DE EXCEPCIONES (usando !)
+# Si quisieras ignorar todas las imágenes EXCEPTO el logo:
+# *.png                 # Ignora todas las imágenes PNG
+# !logo.png             # EXCEPTO logo.png, este sí se versiona
+
+# PATRONES AVANZADOS
+# **/logs/              # Ignora cualquier carpeta "logs" en cualquier nivel
+# docs/**/*.pdf         # Ignora todos los PDFs dentro de docs y subcarpetas
+# wwwroot/css/compiled/ # Ignora CSS compilado pero mantiene CSS fuente
+
+# ========================================
+# CONSEJOS:
+# 1. Después de crear este archivo, ejecuta: git add .gitignore
+# 2. Si ya tienes archivos rastreados que quieres ignorar:
+#    git rm --cached archivo.txt
+#    git rm -r --cached carpeta/
+# 3. Para ver qué archivos están siendo ignorados:
+#    git status --ignored
+# 4. Para probar si un archivo será ignorado:
+#    git ch

@@ -1,0 +1,134 @@
+﻿/* Estilos principales para la aplicación Deltarune */
+/* Tema inspirado en el juego Deltarune con colores cibernéticos */
+
+/* Configuración base del documento */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #e0e6ff;
+  font-family: 'Press Start 2P', monospace, Arial, sans-serif;  /* Fuente pixelada */
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+/* Configuración del cuerpo de la página */
+body {
+  min-height: 100vh;
+  margin-bottom: 0;
+  box-shadow: 0 0 40px 0 #0ff4, 0 0 0 0 #fff0;  /* Efecto de resplandor cibernético */
+  background: #000 url('/img/deltarune-bg.jpg') no-repeat center center fixed;  /* Imagen de fondo */
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para la barra de navegación y footer */
+.navbar, .footer, header, footer {
+  background: #1a1536 !important;
+  color: #00fff7 !important;
+  border-bottom: 4px solid #00fff7;
+  box-shadow: 0 0 8px #00fff788;  /* Resplandor azul */
+}
+
+/* Enlaces en la navegación */
+.navbar-brand, .nav-link, .footer a {
+  color: #00fff7 !important;
+  text-shadow: 0 0 4px #00fff7cc;  /* Efecto de texto brillante */
+}
+
+/* Estilos para enlaces generales */
+a, a:visited {
+  color: #00fff7;
+  text-decoration: underline;
+}
+
+/* Efecto hover para enlaces */
+a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #00fff7;
+}
+
+/* Estilos para botones y controles de formulario */
+.btn, button, input[type="submit"] {
+  background: #2e1a63;
+  color: #fff;
+  border: 3px solid #00fff7;
+  border-radius: 0;  /* Bordes cuadrados estilo pixel */
+  font-family: 'Press Start 2P', monospace;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 0 8px #00fff7cc;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto hover para botones */
+.btn:hover, button:hover, input[type="submit"]:hover {
+  background: #00fff7;
+  color: #2e1a63;
+  box-shadow: 0 0 16px #00fff7cc, 0 0 4px #fff;
+}
+
+/* Estilos para campos de entrada */
+input, textarea, select {
+  background: #181446;
+  color: #fff;
+  border: 2px solid #00fff7;
+  border-radius: 0;
+  font-family: 'Press Start 2P', monospace;
+  padding: 0.5rem;
+  box-shadow: 0 0 4px #00fff744;
+}
+
+/* Efecto focus para campos de entrada */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 8px #00fff7cc;
+}
+
+/* Contenedores y tarjetas */
+.container, main, .box, .card, .login-box {
+  background: #221a44cc;  /* Fondo semi-transparente */
+  border: 2px solid #00fff7;
+  box-shadow: 0 0 16px #00fff744;
+  border-radius: 0;
+  padding: 1.5rem;
+}
+
+/* Configuración del contenido principal */
+main[role="main"] {
+  flex: 1 0 auto;
+}
+
+/* Estilos del footer */
+footer {
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background: #1a1536 !important;
+  color: #00fff7 !important;
+  border-top: 4px solid #00fff7;
+  box-shadow: 0 0 8px #00fff788;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #181446;
+}
+::-webkit-scrollbar-thumb {
+  background: #00fff7;
+  border-radius: 0;
+}
+
+/* Responsive design para dispositivos móviles */
+@media (max-width: 600px) {
+  html {
+    font-size: 10px;  /* Texto más pequeño en móviles */
+  }
+}

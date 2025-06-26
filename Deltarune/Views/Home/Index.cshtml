@@ -1,0 +1,213 @@
+﻿@{
+    /*
+     * VISTA PRINCIPAL: VERIFICACIÓN DE CONEXIÓN A SUPABASE
+     *
+     * Propósito: Esta vista muestra el estado de la conexión con Supabase y proporciona información
+     * detallada sobre la configuración y los pasos siguientes.
+     *
+     * Datos recibidos del controlador (ViewBag):
+     * - ViewBag.ConexionExitosa: Mensaje de éxito si la conexión funciona
+     * - ViewBag.Error: Mensaje de error si la conexión falla
+     * - ViewBag.StatusCode: Código de estado HTTP de la respuesta
+     * - ViewBag.ErrorDetail: Detalles adicionales del error (si existe)
+     */
+    ViewData["Title"] = "Verificación de Conexión a Supabase";
+}
+
+@*
+    * SECCIÓN 1: ENCABEZADO DE LA PÁGINA
+    * Esta sección contiene el título principal y una breve descripción del propósito de la página.
+    * La clase "text-center" centra el texto, y "mb-4" añade un margen inferior.
+*@
+<div class="text-center mb-4">
+    <h1 class="display-4">Deltarune - Conexión a Supabase</h1>
+    <p class="lead">Esta página verifica si la aplicación puede conectarse a Supabase</p>
+    <p class="lead">
+        Entra directamente <a href="http://localhost:5237/Auth/Login">aquí</a> para acceder al login.
+    </p>
+
+</div>
+
+@*
+    * CONTENEDOR PRINCIPAL
+    * Contiene todas las secciones de información organizadas en un layout responsive.
+    * Bootstrap utiliza un sistema de grid con filas (row) y columnas (col-*).
+*@
+<div class="container">
+    @*
+        * SECCIÓN 2: PANEL DE ESTADO DE CONEXIÓN
+        * Muestra alertas de éxito o error según el resultado de la conexión.
+        * Esta sección es dinámica y cambia según los valores en ViewBag.
+    *@
+    <div class="row">
+        <div class="col-md-12">
+            @*
+                * ALERTA DE ÉXITO
+                * Solo se muestra si la conexión fue exitosa (ViewBag.ConexionExitosa tiene valor).
+                * Utiliza las clases de alerta de Bootstrap para un estilo visual apropiado.
+                * "bi-check-circle-fill" es un ícono de Bootstrap Icons.
+            *@
+            @if (!string.IsNullOrEmpty(ViewBag.ConexionExitosa))
+            {
+                <div class="alert alert-success">
+                    <i class="bi bi-check-circle-fill me-2"></i> @* Ícono de éxito con margen derecho *@
+                    <strong>¡Conexión exitosa!</strong> @ViewBag.ConexionExitosa
+                    @if (ViewBag.StatusCode != null)
+                    {
+                        <div class="mt-2">Estado HTTP: @ViewBag.StatusCode</div>
+                    }
+                </div>
+            }
+
+            @*
+                * ALERTA DE ERROR
+                * Solo se muestra si la conexión falló (ViewBag.Error tiene valor).
+                * Incluye detalles técnicos adicionales si están disponibles.
+                * "bi-exclamation-triangle-fill" es un ícono de advertencia.
+            *@
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <strong>Error de conexión:</strong> @ViewBag.Error
+                    @if (ViewBag.StatusCode != null)
+                    {
+                        <div class="mt-2">Estado HTTP: @ViewBag.StatusCode</div>
+                    }
+                    @if (!string.IsNullOrEmpty(ViewBag.ErrorDetail))
+                    {
+                        <div class="mt-2">
+                            <strong>Detalles:</strong>
+                            @*
+                                * <pre> formatea el texto preservando espacios y saltos de línea,
+                                * útil para mostrar respuestas JSON o mensajes de error formateados
+                            *@
+                            <pre class="mt-2 p-2 bg-light">@ViewBag.ErrorDetail</pre>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    @*
+        * SECCIÓN 3: TARJETA DE INFORMACIÓN DETALLADA
+        * Proporciona un panel con información específica según el estado de la conexión.
+        * La tarjeta tiene un encabezado azul (bg-primary) y contenido adaptable.
+        * "mt-4" añade margen superior para separar esta sección de la anterior.
+    *@
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                @* Encabezado de la tarjeta *@
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Estado de la Conexión a Supabase</h5>
+                </div>
+
+                @* Cuerpo de la tarjeta con contenido condicional *@
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(ViewBag.ConexionExitosa))
+                    {
+                        @*
+                            * CONTENIDO PARA CONEXIÓN EXITOSA
+                            * Muestra información sobre los próximos pasos que el usuario puede seguir.
+                            * Lista acciones recomendadas para continuar con el desarrollo.
+                        *@
+                        <p>La aplicación está conectada correctamente a la base de datos de Supabase.</p>
+                        <hr /> @* Línea horizontal separadora *@
+                        <h6>¿Qué puedes hacer ahora?</h6>
+                        <ul>
+                            <li>Implementar operaciones CRUD para tu Deltarune pag</li>
+                            <li>Guardar y recuperar datos de la base de datos</li>
+                            <li>Desarrollar nuevas funcionalidades que requieran persistencia de datos</li>
+                        </ul>
+                    }
+                    else if (!string.IsNullOrEmpty(ViewBag.Error))
+                    {
+                        @*
+                            * CONTENIDO PARA CONEXIÓN FALLIDA
+                            * Proporciona una lista de posibles causas y soluciones al problema.
+                            * Guía al usuario para resolver el problema de conexión.
+                        *@
+                        <p>No se pudo establecer conexión con la base de datos de Supabase.</p>
+                        <hr />
+                        <h6>Posibles causas y soluciones:</h6>
+                        <ul>
+                            <li><strong>Configuración incorrecta:</strong> Verifica que la URL y clave API en appsettings.json sean correctas</li>
+                            <li><strong>Proyecto inactivo:</strong> Asegúrate de que el proyecto de Supabase esté activo</li>
+                            <li><strong>Problemas de red:</strong> Verifica tu conexión a Internet</li>
+                            <li><strong>Firewall/Proxy:</strong> Verifica si un firewall está bloqueando las conexiones salientes</li>
+                        </ul>
+                    }
+                    else
+                    {
+                        @*
+                            * CONTENIDO PARA ESTADO INICIAL/CARGANDO
+                            * Muestra un indicador visual de que la aplicación está verificando la conexión.
+                            * "spin" es una clase CSS personalizada que anima el ícono para que gire.
+                        *@
+                        <p class="text-center">
+                            <i class="bi bi-arrow-repeat spin me-2"></i>
+                            Verificando conexión a Supabase...
+                        </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*
+        * SECCIÓN 4: INFORMACIÓN TÉCNICA
+        * Proporciona detalles técnicos sobre la configuración del proyecto.
+        * Esta tarjeta tiene un encabezado gris (bg-secondary) para distinguirla visualmente.
+        * Se divide en dos columnas en pantallas medianas y grandes (col-md-6).
+    *@
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Información Técnica</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @*
+                            * COLUMNA IZQUIERDA: CONFIGURACIÓN
+                            * Detalla aspectos técnicos sobre cómo está configurada la conexión.
+                        *@
+                        <div class="col-md-6">
+                            <h6>Detalles de la Configuración:</h6>
+                            <ul>
+                                <li><strong>Método de conexión:</strong> API REST directa (HttpClient)</li>
+                                <li><strong>Configuración:</strong> appsettings.json</li>
+                                <li><strong>Dependencias:</strong> Solo Npgsql (para futura conexión directa si es necesario)</li>
+                            </ul>
+                        </div>
+
+                        @*
+                            * COLUMNA DERECHA: PRÓXIMOS PASOS
+                            * Sugiere pasos técnicos para el desarrollo futuro del proyecto.
+                        *@
+                        <div class="col-md-6">
+                            <h6>Próximos Pasos:</h6>
+                            <ul>
+                                <li>Definir modelos para la Deltarune page</li>
+                                <li>Implementar operaciones matemáticas</li>
+                                <li>Guardar resultados en Supabase</li>
+                                <li>Desarrollar interfaz de usuario</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*
+    * NOTAS ADICIONALES:
+    *
+    * 1. Esta vista utiliza Bootstrap 5 para el diseño responsivo y estilos visuales.
+    * 2. Los íconos provienen de la biblioteca Bootstrap Icons (bi-*).
+    * 3. La clase "spin" para la animación de carga está definida en spinner.css.
+    * 4. La información mostrada se adapta dinámicamente según los datos proporcionados por el controlador.
+    * 5. El diseño responsivo garantiza que la página se vea bien en dispositivos móviles y de escritorio.
+*@
