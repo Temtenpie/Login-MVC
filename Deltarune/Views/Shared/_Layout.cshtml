@@ -43,9 +43,29 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- Música de fondo: Field of Hopes and Dreams (Deltarune OST) -->
     <audio id="bg-music" src="/audio/field-of-hopes-and-dreams.mp3" autoplay loop hidden></audio>
+    <div id="music-activate-msg" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);color:#00fff7;z-index:9999;align-items:center;justify-content:center;font-family:'Press Start 2P',monospace;font-size:1.2rem;text-align:center;">
+      Haz clic o presiona una tecla para activar la música.<br/>
+      <button id="activate-music-btn" style="margin-top:2rem;padding:1rem 2rem;background:#00fff7;color:#221a44;border:none;font-family:'Press Start 2P',monospace;cursor:pointer;">Activar música</button>
+    </div>
     <script>
-      // Reanudar la música desde el último tiempo guardado
       const audio = document.getElementById('bg-music');
+      const msg = document.getElementById('music-activate-msg');
+      const btn = document.getElementById('activate-music-btn');
+      let musicStarted = false;
+      function hideMsg() {
+        msg.style.display = 'none';
+      }
+      function showMsg() {
+        msg.style.display = 'flex';
+      }
+      function tryPlay() {
+        audio.play().then(()=>{
+          musicStarted = true;
+          hideMsg();
+        }).catch(()=>{
+          showMsg();
+        });
+      }
       if (audio) {
         // Restaurar tiempo
         const savedTime = localStorage.getItem('bg-music-time');
@@ -56,14 +76,19 @@
         audio.addEventListener('timeupdate', function() {
           localStorage.setItem('bg-music-time', audio.currentTime);
         });
-        // Intentar reproducir tras interacción del usuario
-        function tryPlay() {
-          audio.play().catch(()=>{});
-          window.removeEventListener('click', tryPlay);
-          window.removeEventListener('keydown', tryPlay);
-        }
+        // Intentar reproducir inmediatamente
+        tryPlay();
+        // Si falla, mostrar mensaje y esperar interacción
         window.addEventListener('click', tryPlay);
         window.addEventListener('keydown', tryPlay);
+        btn.addEventListener('click', tryPlay);
+        // Ocultar mensaje si la música comienza
+        audio.addEventListener('play', function() {
+          if (!musicStarted) {
+            musicStarted = true;
+            hideMsg();
+          }
+        });
       }
     </script>
     @await RenderSectionAsync("Scripts", required: false)

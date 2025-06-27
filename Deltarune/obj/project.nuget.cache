@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "F4KQ2bb8N3g=",
+  "dgSpecHash": "7sLChlzsKJr556F/AcfSiBmknsyOIJDBK+oBZpldYmsTkosIMfqSVwX4PFzjceLVNEgZ3uCeDCFiDLrosM4e3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Robot-pc\\source\\repos\\Deltarune\\Deltarune\\Deltarune.csproj",
+  "projectFilePath": "/Users/macsi/Projects/Deltarune/Deltarune/Deltarune.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Robot-pc\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
-    "C:\\Users\\Robot-pc\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "/Users/macsi/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
+    "/Users/macsi/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

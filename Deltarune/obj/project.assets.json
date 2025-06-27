@@ -100,31 +100,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Robot-pc\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/macsi/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Robot-pc\\source\\repos\\Deltarune\\Deltarune\\Deltarune.csproj",
+      "projectUniqueName": "/Users/macsi/Projects/Deltarune/Deltarune/Deltarune.csproj",
       "projectName": "Deltarune",
-      "projectPath": "C:\\Users\\Robot-pc\\source\\repos\\Deltarune\\Deltarune\\Deltarune.csproj",
-      "packagesPath": "C:\\Users\\Robot-pc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Robot-pc\\source\\repos\\Deltarune\\Deltarune\\obj\\",
+      "projectPath": "/Users/macsi/Projects/Deltarune/Deltarune/Deltarune.csproj",
+      "packagesPath": "/Users/macsi/.nuget/packages/",
+      "outputPath": "/Users/macsi/Projects/Deltarune/Deltarune/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Robot-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/macsi/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -137,13 +131,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net7.0": {
@@ -177,7 +165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.410/RuntimeIdentifierGraph.json"
       }
     }
   }
