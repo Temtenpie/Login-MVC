@@ -1,12 +1,7 @@
 ﻿using Deltarune.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Diagnostics;
-using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace Deltarune.Controllers
 {
